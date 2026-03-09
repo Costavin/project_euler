@@ -1,7 +1,8 @@
 import time
 
 def gauss_sum(val):
-    return val*(val+1)/2
+    p = limit//val
+    return val*p*(p+1)//2
 
 # Record the start time
 acc = 0
@@ -16,7 +17,7 @@ end_time = time.perf_counter()
 print(str(acc) + "\nfor loop\nElapsed time: " + str(end_time - start_time))
 
 start_time = time.perf_counter()
-res = 3*gauss_sum(limit//3) + 5*gauss_sum(limit//5) - 15*gauss_sum(limit//15)
+res = gauss_sum(3) + gauss_sum(5) - gauss_sum(15)
 
 end_time = time.perf_counter()
 

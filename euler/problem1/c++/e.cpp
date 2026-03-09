@@ -1,12 +1,14 @@
 #include <iostream>
 #include <chrono>
 
+int limit = 999;
+
 int gauss_sum(int x) {
-	return (x*(x+1))/2;
+	int p = limit/x;
+	return x*(p*(p+1))/2;
 }
 
 int main() {
-	int limit = 999;
 	int result = 0;
 	
 	auto start = std::chrono::high_resolution_clock::now();
@@ -23,7 +25,7 @@ int main() {
 
 	start = std::chrono::high_resolution_clock::now();
 	
-	result = 3*gauss_sum(limit/3) + 5*gauss_sum(limit/5) - 15*gauss_sum(limit/15);
+	result = gauss_sum(3) + gauss_sum(5) - gauss_sum(15);
 
 	end = std::chrono::high_resolution_clock::now();
 	duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
