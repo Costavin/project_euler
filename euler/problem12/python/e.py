@@ -20,7 +20,9 @@ def fact(x):
     for i in range(2,int(math.sqrt(x))+1):
         while (x%i == 0):
             lis.append(i)
-            x = x / i
+            x = x // i
+    if x > 1:
+        lis.append(x)
     return lis
 
 def number_fact(lis):
